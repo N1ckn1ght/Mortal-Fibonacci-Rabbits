@@ -15,5 +15,5 @@ fun main()
         psum += childs[i - 2] - childs[i - m - 1]
         childs[i] = psum
     }
-    println("test " + (childs[n + m - 1] + psum + childs[n + m - 2] - childs[n - 1]).toString())
+    println((childs[n + m - 1] + psum + childs[n + m - 2] - childs[n - 1]).toString())
 }
