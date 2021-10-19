@@ -6,13 +6,14 @@ fun main()
     var n: Int = sc.nextInt()
     var m: Int = sc.nextInt()
 
-    val adults = LongArray(n + m - 1) {0}
-    val childs = LongArray(n + m - 1) {0}
-    childs[m - 1] = 1
-    for (i in m..(m + n - 2))
+    val childs = LongArray(n + m) {0}
+    var psum: Long = 0
+
+    childs[m] = 1
+    for (i in (m + 1)..(m + n - 1))
     {
-        childs[i] = adults[i - 1]
-        adults[i] = adults[i - 1] + childs[i - 1] - childs[i - m]
+        psum += childs[i - 2] - childs[i - m - 1]
+        childs[i] = psum
     }
-    println(adults[n + m - 2] + childs[n + m - 2])
+    println("test " + (childs[n + m - 1] + psum + childs[n + m - 2] - childs[n - 1]).toString())
 }
